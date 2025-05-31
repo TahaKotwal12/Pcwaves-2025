@@ -1,0 +1,339 @@
+/* Gallery Specific Styles */
+.gallery-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 120px 20px 60px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.gallery-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.gallery-header p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: white;
+    color: #667eea;
+    border-color: white;
+}
+
+.gallery-content {
+    padding: 80px 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1e293b;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.placeholder-image {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    position: relative;
+}
+
+.placeholder-image span {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* Different background colors for different categories */
+.repair-before { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.repair-after { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.phone-repair { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.desktop-upgrade { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.ps5-repair { background: linear-gradient(135deg, #003087, #0066cc); }
+.component-repair { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+.electronics-1 { background: linear-gradient(135deg, #1e293b, #334155); }
+.electronics-2 { background: linear-gradient(135deg, #065f46, #047857); }
+.electronics-3 { background: linear-gradient(135deg, #7c2d12, #9a3412); }
+.electronics-4 { background: linear-gradient(135deg, #b91c1c, #dc2626); }
+.electronics-5 { background: linear-gradient(135deg, #1e40af, #2563eb); }
+.electronics-6 { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+
+.customer-1 { background: linear-gradient(135deg, #059669, #10b981); }
+.customer-2 { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+.customer-3 { background: linear-gradient(135deg, #dc2626, #ef4444); }
+.customer-4 { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Brands Section */
+.brands-section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.brands-section h3 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin: 2rem 0 1rem;
+    text-align: center;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.brand-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-3px);
+}
+
+.brand-logo {
+    width: 80px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.brand-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.brand-item span {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* Gallery Image Styles */
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Visit Us Section */
+.visit-us {
+    background: #f8fafc;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.visit-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.visit-us > p {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.visit-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
+.visit-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.visit-item i {
+    font-size: 2rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+.visit-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.visit-item p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.btn-secondary:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-header h1 {
+        font-size: 2rem;
+    }
+    
+    .gallery-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .placeholder-image {
+        height: 200px;
+        font-size: 2rem;
+    }
+
+    .gallery-image {
+        height: 200px;
+    }
+    
+    .visit-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .visit-us h2 {
+        font-size: 2rem;
+    }
+}
