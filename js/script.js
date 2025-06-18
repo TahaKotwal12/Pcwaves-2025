@@ -250,6 +250,126 @@ if (transferForm) {
     });
 }
 
+// Console Repair Form Submission
+const consoleBookingForm = document.getElementById('consoleBookingForm');
+if (consoleBookingForm) {
+    consoleBookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm(this)) {
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const brand = formData.get('brand');
+            const model = formData.get('model');
+            const issue = formData.get('issue');
+            const description = formData.get('description');
+            
+            submitButton.textContent = 'Booking...';
+            submitButton.disabled = true;
+            
+            // Send console repair booking email using EmailJS
+            emailjs.send("service_qwr3tjw", "template_ote604c", {
+                from_name: name,
+                from_email: email,
+                subject: `Console Repair Booking - ${brand} ${model}`,
+                message: `
+                    New Console Repair Booking:
+                    
+                    Customer: ${name}
+                    Email: ${email}
+                    Phone: ${phone}
+                    Console Brand: ${brand}
+                    Console Model: ${model}
+                    Issue Type: ${issue}
+                    Description: ${description}
+                    
+                    Please contact the customer to confirm the appointment.
+                `,
+                to_email: "support@pcwaves.com",
+                reply_to: email
+            })
+            .then(function(response) {
+                console.log('CONSOLE REPAIR SUCCESS!', response.status, response.text);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showSuccess(consoleBookingForm, 'Console repair booking submitted successfully! We will contact you within 24 hours to confirm your appointment.');
+                consoleBookingForm.reset();
+                localStorage.removeItem('consoleBookingForm_data');
+            }, function(error) {
+                console.log('CONSOLE REPAIR FAILED...', error);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showError(consoleBookingForm, 'Failed to submit booking. Please try again or call us directly at +44 1254 721723.');
+            });
+        }
+    });
+}
+
+// Custom PC Build Form Submission
+const pcBuildForm = document.getElementById('pcBuildForm');
+if (pcBuildForm) {
+    pcBuildForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm(this)) {
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const type = formData.get('type');
+            const budget = formData.get('budget');
+            const use = formData.get('use');
+            const requirements = formData.get('requirements');
+            
+            submitButton.textContent = 'Sending Quote Request...';
+            submitButton.disabled = true;
+            
+            // Send custom PC build quote request using EmailJS
+            emailjs.send("service_qwr3tjw", "template_ote604c", {
+                from_name: name,
+                from_email: email,
+                subject: `Custom PC Build Quote Request - ${type}`,
+                message: `
+                    New Custom PC Build Quote Request:
+                    
+                    Customer: ${name}
+                    Email: ${email}
+                    Phone: ${phone}
+                    PC Type: ${type}
+                    Budget Range: ${budget}
+                    Primary Use: ${use}
+                    Requirements: ${requirements}
+                    
+                    Please provide a detailed quote and consultation.
+                `,
+                to_email: "support@pcwaves.com",
+                reply_to: email
+            })
+            .then(function(response) {
+                console.log('PC BUILD QUOTE SUCCESS!', response.status, response.text);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showSuccess(pcBuildForm, 'Quote request submitted successfully! We will contact you within 24 hours with a detailed quote and consultation.');
+                pcBuildForm.reset();
+                localStorage.removeItem('pcBuildForm_data');
+            }, function(error) {
+                console.log('PC BUILD QUOTE FAILED...', error);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showError(pcBuildForm, 'Failed to submit quote request. Please try again or call us directly at +44 1254 721723.');
+            });
+        }
+    });
+}
+
 // Newsletter Form Submission
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
