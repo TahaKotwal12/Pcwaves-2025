@@ -924,3 +924,170 @@ body {
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }
+
+/* Network Solutions Types Section */
+.solutions-types {
+    padding: 80px 20px;
+    background: #f8fafc;
+}
+
+.solutions-types h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.solution-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.solution-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.10);
+}
+
+.solution-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #e0e7ff;
+    border-radius: 50%;
+}
+
+.solution-card h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.solution-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.solution-card ul li {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2em;
+    position: relative;
+    text-align: left;
+}
+
+.solution-card ul li:before {
+    content: '\2022';
+    color: #22c55e;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    top: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+    .solutions-types {
+        padding: 50px 10px;
+    }
+}
+
+/* Network Equipment & Brands Section */
+.equipment-section {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.equipment-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.equipment-category {
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.equipment-category h3 {
+    font-size: 1.15rem;
+    color: #2563eb;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.brand-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.brand-tag {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #2563eb;
+    border-radius: 20px;
+    padding: 0.4em 1em;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 0.3em;
+    transition: background 0.2s, color 0.2s;
+}
+
+.brand-tag:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+    .equipment-section {
+        padding: 50px 10px;
+    }
+}

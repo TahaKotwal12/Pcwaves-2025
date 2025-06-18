@@ -370,6 +370,66 @@ if (pcBuildForm) {
     });
 }
 
+// Network Solutions Form Submission
+const networkBookingForm = document.getElementById('networkBookingForm');
+if (networkBookingForm) {
+    networkBookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm(this)) {
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const networkType = formData.get('networkType');
+            const urgency = formData.get('urgency');
+            const description = formData.get('description');
+            
+            submitButton.textContent = 'Booking Network Service...';
+            submitButton.disabled = true;
+            
+            // Send network solutions booking email using EmailJS
+            emailjs.send("service_qwr3tjw", "template_ote604c", {
+                from_name: name,
+                from_email: email,
+                subject: `Network Solutions Booking - ${service}`,
+                message: `
+                    New Network Solutions Booking:
+                    
+                    Customer: ${name}
+                    Email: ${email}
+                    Phone: ${phone}
+                    Service Type: ${service}
+                    Network Type: ${networkType}
+                    Urgency: ${urgency}
+                    Description: ${description}
+                    
+                    Please contact the customer to schedule the network service.
+                `,
+                to_email: "support@pcwaves.com",
+                reply_to: email
+            })
+            .then(function(response) {
+                console.log('NETWORK SOLUTIONS SUCCESS!', response.status, response.text);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showSuccess(networkBookingForm, 'Network service booking submitted successfully! We will contact you within 24 hours to schedule your service.');
+                networkBookingForm.reset();
+                localStorage.removeItem('networkBookingForm_data');
+            }, function(error) {
+                console.log('NETWORK SOLUTIONS FAILED...', error);
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                showError(networkBookingForm, 'Failed to submit booking. Please try again or call us directly at +44 1254 721723.');
+            });
+        }
+    });
+}
+
 // Newsletter Form Submission
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
